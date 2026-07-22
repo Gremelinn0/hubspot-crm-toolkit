@@ -2,16 +2,16 @@
 
 > Statut : **brouillon de Florent, « à améliorer dans le futur »** — conservé **verbatim**, ne pas le retoucher sans son accord.
 >
-> Où il vit : dans la **bibliothèque de prompts partagés** HubSpot de Florent (à l'échelle de tous ses projets). C'est un **renfort optionnel** — la méthode est surtout portée par l'agent via `hubspot-breeze-audit` §2. HubSpot ne permet pas d'instructions custom au niveau du compte (seulement dans un projet Breeze, mais en mettre partout surcharge).
+> Où il vit : dans la **bibliothèque de prompts partagés** HubSpot de Florent (à l'échelle de tous ses projets). C'est un **renfort optionnel** — la méthode est surtout portée par l'agent via `claude-breeze` §2. HubSpot ne permet pas d'instructions custom au niveau du compte (seulement dans un projet Breeze, mais en mettre partout surcharge).
 
 ## Quand s'en servir
 
-Le §3 de `hubspot-breeze-audit` (mode Navigation assistée) suppose que **Claude navigue lui-même** via Chrome MCP, et que Florent ne devient « mains sur l'écran » que si un écran n'est pas atteignable directement. Ce prompt-ci formalise **cette bascule** — et sert aussi de prompt **copiable tel quel** dans un contexte où l'IA n'a AUCUN accès navigateur :
+Le §3 de `claude-breeze` (mode Navigation assistée) suppose que **Claude navigue lui-même** via Chrome MCP, et que Florent ne devient « mains sur l'écran » que si un écran n'est pas atteignable directement. Ce prompt-ci formalise **cette bascule** — et sert aussi de prompt **copiable tel quel** dans un contexte où l'IA n'a AUCUN accès navigateur :
 
 - **Claude sans Chrome MCP** (outil mort dans la session) : ce texte donne la discipline exacte à tenir en attendant — jamais conclure avant confirmation de la bonne page, toujours nommer la page + le pourquoi + l'URL + l'action attendue.
-- **Une autre IA** (ChatGPT, Gemini, le chat Breeze lui-même) sans navigateur : Florent colle ce prompt tel quel pour obtenir la même discipline de navigation guidée qu'avec `hubspot-breeze-audit`.
+- **Une autre IA** (ChatGPT, Gemini, le chat Breeze lui-même) sans navigateur : Florent colle ce prompt tel quel pour obtenir la même discipline de navigation guidée qu'avec `claude-breeze`.
 
-C'est l'origine du protocole — le premier audit Buyer Intent (Pastry Chef, `audit-buyer-intent.md`) a été mené avec exactement cette méthode, avant que `hubspot-breeze-audit` §3 ne la code pour Claude + Chrome MCP.
+C'est l'origine du protocole — le premier audit Buyer Intent (Pastry Chef, `audit-buyer-intent.md`) a été mené avec exactement cette méthode, avant que `claude-breeze` §3 ne la code pour Claude + Chrome MCP.
 
 ## Le prompt (verbatim, Florent — « à améliorer dans le futur »)
 

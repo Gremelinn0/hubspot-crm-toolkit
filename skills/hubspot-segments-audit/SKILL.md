@@ -90,4 +90,4 @@ Private App token (`crm.lists.read` + `crm.objects.contacts/companies.read`), st
 78 segments cartographiés + audités via ce flow → `memory/clients/pastry-chefs-boutique/segments-audit-cartographie.md` (dump : `_segments-dump.local`). Findings : familles métier, « Clients - X » bien construits (après inspection), 6 imports statiques à archiver, références inter-segments (→ ne pas supprimer).
 
 ## Skills liés
-`hubspot-marketing-segments` (créer les listes contacts) · `crm-investigation-output` (format de rendu) · `revops-api-scripts` (scripts API) · `hubspot-crm` (règles CRM) · `hubspot-breeze-audit` (le jumeau UI-first / Breeze — quand une fonctionnalité liée aux segments n'a pas d'API propre à aspirer, ou pour déléguer un diagnostic à Breeze).
+`hubspot-marketing-segments` (créer les listes contacts) · `crm-investigation-output` (format de rendu) · `revops-api-scripts` (scripts API) · `hubspot-crm` (règles CRM) · `claude-breeze` (le jumeau UI-first / Breeze — quand une fonctionnalité liée aux segments n'a pas d'API propre à aspirer, ou pour déléguer un diagnostic à Breeze).

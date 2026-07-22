@@ -380,8 +380,8 @@ search_crm_objects(objectType="contacts", filters=[{"propertyName":"hs_analytics
 | Chercher contacts par critère | **MCP** (`search_crm_objects`) |
 | Analyser campagne email | **MCP** (`get_campaign_analytics`) |
 | Action inconnue → valider approche | **Breeze** d'abord, puis MCP/CU |
-| Diagnostic / analyse / « pourquoi X » sur la data du portail | **`hubspot-breeze-audit`** (mode Breeze — gratuit) |
-| Fonctionnalité éparpillée sur plusieurs écrans, pas d'API propre (Buyer Intent, Lead Scoring, Permissions, Record customization…) | **`hubspot-breeze-audit`** (mode navigation — audit écran par écran) |
+| Diagnostic / analyse / « pourquoi X » sur la data du portail | **`claude-breeze`** (mode Breeze — gratuit) |
+| Fonctionnalité éparpillée sur plusieurs écrans, pas d'API propre (Buyer Intent, Lead Scoring, Permissions, Record customization…) | **`claude-breeze`** (mode navigation — audit écran par écran) |
 | Coder module/theme/serverless local | **hubspot-cli** |
 | Exemple OAuth/webhook Node.js | **sample-apps-nodejs** |
 | Transformer données HubSpot → BI | **dbt_hubspot** (Fivetran) |

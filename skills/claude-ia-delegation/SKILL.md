@@ -1,7 +1,7 @@
 ---
 name: claude-ia-delegation
 description: >-
-  L'ORCHESTRATEUR d'arbitrage de tokens : au lieu que Claude fasse tout le travail lui-même, router chaque recherche / diagnostic / investigation vers le CERVEAU LE MOINS CHER qui sait la faire, puis garder Claude pour la valeur ajoutée et le local qu'il est seul à pouvoir exécuter. Compétence CHAPEAU (mince) qui DÉCIDE selon le contexte et DÉLÈGUE à une compétence plateforme — elle ne ré-implémente jamais la méthode d'une plateforme. Routage : contexte HubSpot → `hubspot-breeze-audit` (Breeze gratuit + audit écran-par-écran) ; recherche générale offloadable → GPT / Gemini (crédits déjà payés) ; une autre session a déjà la connexion/le contexte → on lui envoie le travail ; seul Claude peut le faire (fichiers locaux, connexions, synthèse fine) → il le fait. À invoquer dès qu'une tâche de recherche/analyse pourrait être déléguée pour économiser les tokens, sur "délègue ça", "au lieu de tout faire toi-même", "économise mes tokens", "utilise Breeze / GPT / Gemini", "arbitrage de tokens", "fais bosser une autre plateforme / une autre session", "cerveau le moins cher", ou tout diagnostic/recherche où faire tout soi-même serait du gaspillage alors qu'une IA moins chère peut répondre.
+  L'ORCHESTRATEUR d'arbitrage de tokens : au lieu que Claude fasse tout le travail lui-même, router chaque recherche / diagnostic / investigation vers le CERVEAU LE MOINS CHER qui sait la faire, puis garder Claude pour la valeur ajoutée et le local qu'il est seul à pouvoir exécuter. Compétence CHAPEAU (mince) qui DÉCIDE selon le contexte et DÉLÈGUE à une compétence plateforme — elle ne ré-implémente jamais la méthode d'une plateforme. Routage : contexte HubSpot → `claude-breeze` (Breeze gratuit + audit écran-par-écran) ; recherche générale offloadable → GPT / Gemini (crédits déjà payés) ; une autre session a déjà la connexion/le contexte → on lui envoie le travail ; seul Claude peut le faire (fichiers locaux, connexions, synthèse fine) → il le fait. À invoquer dès qu'une tâche de recherche/analyse pourrait être déléguée pour économiser les tokens, sur "délègue ça", "au lieu de tout faire toi-même", "économise mes tokens", "utilise Breeze / GPT / Gemini", "arbitrage de tokens", "fais bosser une autre plateforme / une autre session", "cerveau le moins cher", ou tout diagnostic/recherche où faire tout soi-même serait du gaspillage alors qu'une IA moins chère peut répondre.
 ---
 
 # Skill — claude-ia-delegation (déléguer au cerveau le moins cher)
@@ -29,21 +29,25 @@ Avant de se lancer dans une recherche/analyse, une question : **quel cerveau, le
 
 ## §2 Les branches (routage — le chapeau POINTE, il ne fait pas)
 
-- **HubSpot** → **`hubspot-breeze-audit`** (projet Clients) : mode Breeze (IA native, gratuit) pour un diagnostic, mode navigation écran-par-écran pour une fonctionnalité sans API. La méthode HubSpot vit là-bas, pas ici.
+- **HubSpot** → **`claude-breeze`** (projet Clients) : mode Breeze (IA native, gratuit) pour un diagnostic, mode navigation écran-par-écran pour une fonctionnalité sans API. La méthode HubSpot vit là-bas, pas ici.
 - **Recherche générale** → **GPT / Gemini** : principe posé, mécanique à câbler quand on l'utilise vraiment (leur UI via Chrome MCP, ou un MCP dédié si connecté). Ne pas gonfler ce skill avec cette mécanique avant de l'avoir.
 - **Autre session** → router le travail à la session qui a la connexion/le contexte (`send_message`), plutôt que de tout refaire ici.
 - **Local / valeur ajoutée** → Claude exécute directement (le reste de ses compétences).
 
 ## §3 Garde-fous — rester MINCE
 
-- **Ce skill ROUTE, il ne ré-implémente pas.** La méthode de chaque plateforme vit dans SA compétence (ex `hubspot-breeze-audit`). Si ce fichier se met à décrire *comment* parler à une plateforme, c'est qu'une branche déborde → la sortir dans une compétence plateforme.
+- **Ce skill ROUTE, il ne ré-implémente pas.** La méthode de chaque plateforme vit dans SA compétence (ex `claude-breeze`). Si ce fichier se met à décrire *comment* parler à une plateforme, c'est qu'une branche déborde → la sortir dans une compétence plateforme.
 - **Une branche non câblée reste un principe d'une ligne** (GPT/Gemini aujourd'hui) — pas d'abstraction sur du vide, elle grossit le jour où on la branche pour de vrai.
 - **La clôture appartient à la compétence plateforme** : c'est elle qui loge son travail dans le registre des projets IA (`plateformes-ai-registry.md`), pas l'orchestrateur.
 
-## §4 Étendre — ajouter une plateforme
+## §4 Étendre — ajouter une plateforme (convention `claude-<cible>`)
 
-Nouvelle plateforme avec une IA / des crédits → (1) créer ou pointer une **compétence plateforme dédiée** (via `anthropic-skills:skill-creator` puis `/skill-factory`, CLAUDE-GLOBAL §1), (2) ajouter **une branche** dans le tableau §1 + §2. Jamais la mécanique ici.
+**Nommage des déclinaisons — `claude-<cible>`** : une compétence plateforme de cette famille se nomme **`claude-<cible>`** = « Claude délègue vers <cible> ». Ex **`claude-breeze`** (HubSpot Breeze). Demain `claude-gpt`, `claude-gemini`… Le **nom montre la délégation** ; la **méthode propre** de chaque cible (comment on la pilote, ses capacités ET ses limites) se décrit **dans SA compétence, jamais ici** — le chapeau reste mince.
+
+Nouvelle plateforme avec une IA / des crédits → (1) créer une **compétence plateforme `claude-<cible>`** (via `anthropic-skills:skill-creator` puis `/skill-factory`, CLAUDE-GLOBAL §1), (2) ajouter **une branche** dans le tableau §1 + §2.
+
+**Ce chapeau AMÉLIORE aussi ses déclinaisons** — son but n'est pas que de router, c'est de rendre la collaboration Claude↔IA-cible fluide dans le temps : quand une déclinaison gagne une capacité ou bute sur une limite (ex `claude-breeze` rate les chiffres exacts → on lit soi-même, Breeze raisonne), on l'affine dans **SA** compétence, et on tient ce §4 à jour de la famille.
 
 ## Skills liés
 
-`hubspot-breeze-audit` (branche HubSpot — Breeze + audit écran-par-écran) · `/sessions` (router vers une autre session, CLAUDE-GLOBAL §27) · registre `plateformes-ai-registry.md` (la clôture, tenue par les compétences plateforme). Doctrine « cerveau le moins cher » : mémoire `token-economy-recommend-cheapest`.
+`claude-breeze` (branche HubSpot — Breeze + audit écran-par-écran) · `/sessions` (router vers une autre session, CLAUDE-GLOBAL §27) · registre `plateformes-ai-registry.md` (la clôture, tenue par les compétences plateforme). Doctrine « cerveau le moins cher » : mémoire `token-economy-recommend-cheapest`.

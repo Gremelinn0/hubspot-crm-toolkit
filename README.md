@@ -19,7 +19,7 @@ Le résultat : moins de tokens brûlés, on exploite les crédits qu'on paie dé
 | Compétence | Ce qu'elle fait |
 |---|---|
 | **claude-ia-delegation** | Le chapeau — route chaque tâche vers le cerveau le moins cher. |
-| **hubspot-breeze-audit** | Investiguer une question HubSpot au moindre coût : mode Breeze (demander à l'IA native) OU audit écran-par-écran des fonctionnalités sans API (Buyer Intent, Lead Scoring, Permissions…). |
+| **claude-breeze** | Investiguer une question HubSpot au moindre coût : mode Breeze (demander à l'IA native) OU audit écran-par-écran des fonctionnalités sans API (Buyer Intent, Lead Scoring, Permissions…). |
 | **hubspot-crm** | Le socle : contexte portail, catalogue des outils MCP HubSpot, protocole d'investigation, table de décision Breeze / MCP / navigation. |
 | **hubspot-segments-audit** | Cartographie + audit de tous les segments/listes via API (filtres réels, volumes, santé). |
 | **hubspot-workflows-audit** | Cartographie + audit de tous les workflows/automatisations via API. |
@@ -41,9 +41,9 @@ Puis redémarrer Claude Code. Les compétences deviennent invocables (ex : « au
 
 ## Setup (optionnel)
 
-**La méthode est portée par l'agent** (le skill `hubspot-breeze-audit`), pas par une config HubSpot — rien n'est obligatoire côté portail pour que le toolkit marche quand c'est Claude qui pilote. L'agent travaille dans **tes projets Breeze existants**, change les fenêtres via Chrome MCP pour nourrir Breeze écran par écran, et laisse Breeze produire l'analyse.
+**La méthode est portée par l'agent** (le skill `claude-breeze`), pas par une config HubSpot — rien n'est obligatoire côté portail pour que le toolkit marche quand c'est Claude qui pilote. L'agent travaille dans **tes projets Breeze existants**, change les fenêtres via Chrome MCP pour nourrir Breeze écran par écran, et laisse Breeze produire l'analyse.
 
-Si tu veux que **Breeze tienne la discipline même sans agent** (un humain qui pilote à la main, ou une autre IA sans le skill), garde le prompt `skills/hubspot-breeze-audit/references/navigation-assistee-prompt.md` dans ta **bibliothèque de prompts partagés HubSpot** (ou dans les instructions d'un projet Breeze). HubSpot ne permet pas d'instructions au niveau du compte, seulement au niveau projet — d'où le prompt partagé plutôt qu'une config globale.
+Si tu veux que **Breeze tienne la discipline même sans agent** (un humain qui pilote à la main, ou une autre IA sans le skill), garde le prompt `skills/claude-breeze/references/navigation-assistee-prompt.md` dans ta **bibliothèque de prompts partagés HubSpot** (ou dans les instructions d'un projet Breeze). HubSpot ne permet pas d'instructions au niveau du compte, seulement au niveau projet — d'où le prompt partagé plutôt qu'une config globale.
 
 ## Philosophie
 

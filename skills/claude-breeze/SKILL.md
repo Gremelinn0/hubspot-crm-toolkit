@@ -1,5 +1,5 @@
 ---
-name: hubspot-breeze-audit
+name: claude-breeze
 description: >-
   Investiguer / comprendre / auditer une question HubSpot AU MOINDRE COÛT de tokens Claude, en déléguant au cerveau le moins cher avant de faire le travail soi-même. Compétence ADAPTATIVE à 2 modes qu'elle choisit selon la situation : (1) MODE BREEZE — poser la question à l'IA native de HubSpot (tokens gratuits, 3000 crédits) pour tout diagnostic / analyse / raisonnement sur la data du portail ; (2) MODE NAVIGATION ASSISTÉE — auditer écran par écran une fonctionnalité dont la vérité est éparpillée sans API de dump (Buyer Intent, Lead Scoring, Permissions, Pipelines, Settings complexes), en classant CONFIRMÉ / À VÉRIFIER / INCOHÉRENT / À IMPLÉMENTER. Règle d'or de l'audit : jamais conclure depuis un seul écran (la config globale ment souvent sur l'usage réel). En clôture, elle loge ce qu'elle a produit/utilisé dans le registre des plateformes AI. À invoquer sur "breeze", "demande à breeze", "économise les tokens hubspot", "fais bosser breeze", "pourquoi ce workflow / contact / donnée HubSpot", "audit guidé", "audit multi-écrans", "fais le tour de X dans HubSpot", "audit Buyer Intent / Lead Scoring / permissions / pipelines", ou toute investigation HubSpot où lire un seul écran ou tout faire soi-même serait une fausse conclusion ou du gaspillage de tokens.
 ---
