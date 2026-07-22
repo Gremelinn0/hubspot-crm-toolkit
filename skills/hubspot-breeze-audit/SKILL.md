@@ -56,6 +56,8 @@ for(const f of d.querySelectorAll('iframe')){try{const x=f.contentDocument;if(x)
 
 **Breeze ne sait PAS** : le statut d'une app tierce (→ Chrome / URL intégrations) · créer un objet (il analyse, il ne crée rien).
 
+**⚠️ Breeze rate les CHIFFRES EXACTS (limite prouvée 2026-07-22)** : il lit l'écran courant mais **manque des métriques** — ex les compteurs d'en-tête d'une vue, qu'il n'a pas « vus ». → **Bon pour RAISONNER / interpréter, PAS pour relever un chiffre précis.** Chiffre exact requis → le **lire soi-même** via Chrome (navigation §3) ou via l'**API/MCP** (`hubspot-crm` §7), jamais le demander à Breeze. Corollaire de l'opérateur ci-dessus : c'est TOI qui apportes la data (les chiffres exacts inclus), Breeze raisonne dessus.
+
 ## §3 Mode Navigation assistée — auditer écran par écran (pas d'API)
 
 Certaines fonctionnalités n'ont **aucune API de dump** — leur vérité est répartie sur plusieurs écrans, et **la config globale peut être large et brute pendant que l'usage réel, plus fin, vit ailleurs** (une vue sauvegardée, un filtre, un panneau replié).
