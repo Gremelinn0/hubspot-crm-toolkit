@@ -39,6 +39,12 @@ Dans Claude Code :
 
 Puis redémarrer Claude Code. Les compétences deviennent invocables (ex : « audit Buyer Intent », « demande à Breeze pourquoi ce workflow n'enrôle plus »).
 
+## Setup (optionnel)
+
+**La méthode est portée par l'agent** (le skill `hubspot-breeze-audit`), pas par une config HubSpot — rien n'est obligatoire côté portail pour que le toolkit marche quand c'est Claude qui pilote. L'agent travaille dans **tes projets Breeze existants**, change les fenêtres via Chrome MCP pour nourrir Breeze écran par écran, et laisse Breeze produire l'analyse.
+
+Si tu veux que **Breeze tienne la discipline même sans agent** (un humain qui pilote à la main, ou une autre IA sans le skill), garde le prompt `skills/hubspot-breeze-audit/references/navigation-assistee-prompt.md` dans ta **bibliothèque de prompts partagés HubSpot** (ou dans les instructions d'un projet Breeze). HubSpot ne permet pas d'instructions au niveau du compte, seulement au niveau projet — d'où le prompt partagé plutôt qu'une config globale.
+
 ## Philosophie
 
 Un CRM cache sa vérité sur plusieurs écrans, et beaucoup de plateformes exposent une IA gratuite qu'on n'utilise pas. Ce toolkit part de là : **regarder au bon endroit, et faire réfléchir la bonne IA** — pas toujours la plus chère.

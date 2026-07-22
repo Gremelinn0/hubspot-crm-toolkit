@@ -31,6 +31,13 @@ Avant d'agir, une question : **la réponse est-elle atteignable en la DEMANDANT,
 
 But : décharger le raisonnement HubSpot sur **Breeze** pour économiser les tokens Claude. Règle Florent : *« Breeze à fond — normalement c'est lui qui fait toute la réflexion »*.
 
+**Comment on opère — gardien de la méthode (Florent 2026-07-22)** : HubSpot ne permet **aucune instruction custom au niveau du COMPTE** (seulement dans un projet Breeze — mais en mettre dans chaque projet le surcharge). Donc **la méthode est portée par TOI, l'agent, via ce skill — jamais par une config HubSpot**. Concrètement :
+- Tu travailles dans les **projets Breeze EXISTANTS** de l'utilisateur (tu n'en crées **pas** un nouveau).
+- Tu **changes les fenêtres via Chrome MCP** pour amener la data à Breeze **écran par écran**, et **Breeze fait le raisonnement**.
+- Tu **boucles jusqu'à ce que Breeze ait absorbé TOUTE la data ET produit l'analyse**.
+
+Toi = les mains + le gardien de la discipline · Breeze = le cerveau (gratuit). C'est l'arbitrage de tokens en pratique. Le prompt `references/navigation-assistee-prompt.md` (rangé dans les **prompts partagés** HubSpot de Florent) = un **renfort optionnel**, pas le mécanisme.
+
 **Où** (portail 21450353) : ✦ « Open Assistant » (haut-droite) → 📁 Projects → projet **« Marketing automation »**. Crédits IA 3000. Détail : `pastry-chefs-boutique/CLAUDE.md` §4bis.
 
 **La mécanique — tout en auto via JS (méthode prouvée 2026-06-16)** :

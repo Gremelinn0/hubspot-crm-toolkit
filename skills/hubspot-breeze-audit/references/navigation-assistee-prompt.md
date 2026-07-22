@@ -1,6 +1,8 @@
 # Prompt « navigation assistée » — variante humain / autre IA
 
 > Statut : **brouillon de Florent, « à améliorer dans le futur »** — conservé **verbatim**, ne pas le retoucher sans son accord.
+>
+> Où il vit : dans la **bibliothèque de prompts partagés** HubSpot de Florent (à l'échelle de tous ses projets). C'est un **renfort optionnel** — la méthode est surtout portée par l'agent via `hubspot-breeze-audit` §2. HubSpot ne permet pas d'instructions custom au niveau du compte (seulement dans un projet Breeze, mais en mettre partout surcharge).
 
 ## Quand s'en servir
 
