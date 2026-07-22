@@ -1,0 +1,17 @@
+{
+  "name": "hubspot-crm-toolkit",
+  "owner": {
+    "name": "Florent Maisoncelle"
+  },
+  "metadata": {
+    "description": "Boîte à outils HubSpot CRM pour agences, bâtie sur l'arbitrage de tokens (déléguer au cerveau le moins cher).",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "hubspot-crm-toolkit",
+      "source": "./",
+      "description": "Auditer et piloter un portail HubSpot au moindre coût de tokens, en déléguant à Breeze (l'IA native de HubSpot)."
+    }
+  ]
+}

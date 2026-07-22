@@ -1,0 +1,7 @@
+*.local
+*.secret
+.env
+.env.*
+secrets*
+*token*
+node_modules/
